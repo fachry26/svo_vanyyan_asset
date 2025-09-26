@@ -1,0 +1,275 @@
+/* src/components/WhyChooseUs/WhyChooseUs.css */
+
+.why-choose-us-section {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  min-height: 90vh;
+}
+
+.why-choose-us-image {
+  flex-basis: 50%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 3rem
+}
+
+.why-choose-us-image img {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  display: block;
+}
+
+.why-choose-us-content {
+  flex-basis: 50%;
+  padding: 4rem 5rem;
+}
+
+.why-choose-us-content h2 {
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.why-choose-us-content ul {
+  list-style: none;
+}
+
+.why-choose-us-content li {
+  margin-bottom: 2rem;
+}
+
+.why-choose-us-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-left: 30px;
+}
+
+.why-choose-us-content h3::before {
+  content: '✔';
+  color: #e57373;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.why-choose-us-content p {
+  font-size: 1rem;
+  color: #888;
+  padding-left: 30px;
+  margin-top: 0.5rem;
+}
+
+.story-button {
+  margin-top: 1.5rem;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-main);
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--text-dark-pink);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.story-button:hover {
+  background-color: #5a4949;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .why-choose-us-section {
+    flex-direction: column;
+  }
+
+  /* REVISI: Menambahkan padding untuk gambar di mobile */
+  .why-choose-us-image {
+    width: 100%; /* Memastikan kontainer mengambil lebar penuh */
+    padding: 3rem 1.5rem 0; /* Format: atas | horizontal | bawah */
+  }
+
+  .why-choose-us-image img {
+    height: 50vh; /* Make image shorter on mobile */
+  }
+  
+  .why-choose-us-content {
+    width: 100%; /* Memastikan kontainer mengambil lebar penuh */
+    padding: 3rem 1.5rem;
+  }
+
+  .why-choose-us-content h2 {
+    font-size: 2rem;
+  }
+
+  .why-choose-us-content h3 {
+    font-size: 1.2rem;
+  }
+}
+/* --- STYLE BARU UNTUK POP-UP OUR STORY --- */
+
+.story-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 235, 240, 0.6);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.4s ease;
+}
+
+.story-popup-content {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 700px; /* Dibuat lebih lebar untuk teks */
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.close-popup-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  background: rgba(240, 240, 240, 0.8);
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text-dark-pink);
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.close-popup-button:hover {
+  transform: scale(1.1) rotate(90deg);
+  background-color: #f0f0f0;
+}
+
+.popup-text-content {
+  padding: 3rem;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.popup-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark-pink);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.popup-text-content p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 1.5rem;
+  padding-left: 0; /* Override style p sebelumnya */
+}
+
+.popup-signature {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2rem;
+  text-align: right;
+  margin-top: 2rem;
+  color: var(--text-dark-pink);
+}
+
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Responsiveness untuk pop-up */
+@media (max-width: 768px) {
+  .popup-text-content {
+    padding: 2.5rem 1.5rem;
+  }
+  .popup-title {
+    font-size: 2rem;
+  }
+  .popup-text-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Ganti atau perbarui style ini di WhyChooseUs.css Anda */
+
+.why-choose-us-content h2 {
+  font-size: 2.2rem; /* Sedikit dikecilkan agar pas dengan teks yang lebih panjang */
+  font-style: normal; /* Dihilangkan italic agar lebih tegas dan mudah dibaca */
+  font-weight: 600; /* Dibuat sedikit lebih tebal */
+  margin-bottom: 2.5rem;
+  line-height: 1.3; /* Menambah jarak antar baris jika judul menjadi 2 baris */
+}
+
+.why-choose-us-content li {
+  margin-bottom: 1.5rem; /* Jarak antar item dikurangi agar tidak terlalu renggang */
+}
+
+.why-choose-us-content h3 {
+  font-size: 1.3rem; /* Ukuran disesuaikan agar tidak terlalu dominan */
+  font-weight: 600;
+  position: relative;
+  padding-left: 35px; /* Ditambah sedikit ruang untuk ikon */
+}
+
+.why-choose-us-content h3::before {
+  content: '✔';
+  color: #e57373; /* Warna pink yang lembut */
+  position: absolute;
+  left: 0;
+  top: 2px; /* Disesuaikan sedikit agar lebih center secara vertikal */
+  font-size: 1.2rem; /* Ukuran ikon diperjelas */
+}
+
+.why-choose-us-content p {
+  font-size: 1rem;
+  color: #666; /* Warna abu-abu dibuat sedikit lebih gelap agar lebih mudah dibaca */
+  padding-left: 35px; /* Disesuaikan agar lurus dengan judul di atasnya */
+  margin-top: 0.5rem;
+  line-height: 1.6; /* PENTING: Menambah jarak antar baris untuk kenyamanan membaca */
+}
+
+/* Penyesuaian untuk Mobile */
+@media (max-width: 768px) {
+  .why-choose-us-content h2 {
+    font-size: 1.8rem; /* Ukuran judul disesuaikan untuk mobile */
+  }
+  
+  .why-choose-us-content h3 {
+    font-size: 1.1rem;
+    padding-left: 30px;
+  }
+
+  .why-choose-us-content p {
+    padding-left: 30px;
+  }
+}

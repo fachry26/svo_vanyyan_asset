@@ -1,0 +1,43 @@
+/* CertifiedBy.css */
+
+.certified-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9; /* A light background to stand out */
+}
+
+.certified-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.logos-container {
+  display: flex;
+  justify-content: space-around; /* Distributes items evenly */
+  align-items: flex-start; /* Aligns items to the top */
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 20px; /* Adds space between items */
+}
+
+.logo-item {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically (image on top of text) */
+  align-items: center;   /* Centers items horizontally */
+  max-width: 150px;      /* Sets a max width for each item */
+}
+
+.certification-logo {
+  height: 80px; /* Control the height of the logos */
+  width: auto;  /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure logo is not wider than its container */
+  object-fit: contain; /* Prevents the image from being stretched or distorted */
+  margin-bottom: 10px; /* Space between the logo and the text */
+}
+
+.logo-text {
+  font-size: 1rem;
+  color: #555;
+  font-weight: 500;
+  margin: 0; /* Removes default paragraph margin */
+}

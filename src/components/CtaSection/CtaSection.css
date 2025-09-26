@@ -1,0 +1,103 @@
+/* src/components/CtaSection/CtaSection.css */
+
+.cta-section {
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: #fff; /* Memberi background putih bersih */
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.cta-text {
+  flex: 1;
+  font-style: normal; /* Menghapus italic agar lebih formal */
+}
+
+.cta-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #443c3e;
+  margin-bottom: 1rem;
+}
+
+.cta-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+/* --- STYLE BARU UNTUK DAFTAR KONTAK --- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin-bottom: 1.5rem;
+}
+
+.contact-list li a,
+.contact-list li div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-dark-pink);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-list li a:hover {
+  color: #d1a3a3;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0; /* Mencegah ikon mengecil */
+}
+
+/* --- STYLE BARU UNTUK PETA --- */
+.map-container {
+  flex: 1.2; /* Membuat peta sedikit lebih lebar */
+  height: 450px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .cta-text {
+    text-align: center;
+  }
+
+  .map-container {
+    width: 100%;
+    height: 300px; /* Tinggi peta disesuaikan untuk mobile */
+  }
+}

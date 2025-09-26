@@ -1,0 +1,131 @@
+/* src/components/Navbar/Navbar.css */
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  z-index: 1000;
+  background: rgba(252, 239, 238, 0.85);
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar-hide {
+  transform: translateY(-100%);
+}
+
+.navbar-show {
+  transform: translateY(0);
+}
+
+.navbar-logo a {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-dark-pink);
+  text-decoration: none;
+}
+
+/* --- MENU DESKTOP --- */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--text-dark-pink);
+  font-weight: 500;
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-links a:hover {
+  background-color: rgba(246, 226, 226, 0.9);
+  transform: translateY(-2px);
+}
+
+.desktop-links {
+  display: flex;
+}
+
+/* --- TOMBOL HAMBURGER --- */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.line {
+  width: 28px;
+  height: 2px;
+  background-color: var(--text-dark-pink);
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.line1.open { transform: rotate(-45deg) translate(-6px, 7px); }
+.line2.open { opacity: 0; }
+.line3.open { transform: rotate(45deg) translate(-6px, -7px); }
+
+
+/* --- MENU MOBILE OVERLAY --- */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(252, 239, 238, 0.98);
+  backdrop-filter: blur(15px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transform: translateX(100%);
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(0);
+}
+
+.mobile-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2.5rem;
+}
+
+.mobile-links a {
+  font-size: 2rem;
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem 1.5rem;
+  }
+  
+  /* ATURAN PENTING: Menyembunyikan link desktop di mobile */
+  .desktop-links {
+    display: none;
+  }
+  
+  /* Tampilkan tombol hamburger di mobile */
+  .hamburger-menu {
+    display: block;
+  }
+}

@@ -1,0 +1,126 @@
+/* src/components/FloatingVideo/FloatingVideo.css */
+
+/* Latar belakang gelap saat video besar */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1999;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Kontainer utama video */
+.floating-video-container {
+  position: fixed;
+  z-index: 2000;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #000; /* Background hitam untuk video player */
+}
+
+.floating-video-container video {
+  width: 100%;
+  height: 100%;
+  /* REVISI: Diubah ke 'contain' agar video tidak terpotong di player baru */
+  object-fit: contain; 
+}
+
+/* --- State Kecil (Minimized) --- */
+.floating-video-container.minimized {
+  bottom: 25px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 4px solid #fff;
+}
+/* Untuk state minimized, kita kembalikan ke 'cover' agar memenuhi lingkaran */
+.floating-video-container.minimized video {
+  object-fit: cover;
+}
+
+
+/* --- State Besar (Maximized) --- */
+.floating-video-container.maximized {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: auto;
+  /* REVISI: Diubah ke rasio potret agar lebih tinggi */
+  aspect-ratio: 4 / 5;
+  /* REVISI: Lebar maksimal disesuaikan untuk bentuk potret */
+  max-width: 450px; 
+  border-radius: 15px;
+  cursor: default;
+  border: 2px solid #fff;
+}
+
+
+/* --- Tombol Kontrol --- */
+.video-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.close-video-button,
+.minimize-video-button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-video-button:hover,
+.minimize-video-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.minimize-video-button {
+  font-weight: bold;
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .floating-video-container.minimized {
+    width: 120px;
+    height: 120px;
+    bottom: 15px;
+    left: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease, opacity 0.5s ease, visibility 0.5s ease;
+  }
+  
+  body.scrolled .floating-video-container.minimized {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Animasi fade in untuk overlay */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

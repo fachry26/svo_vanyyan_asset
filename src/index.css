@@ -1,0 +1,25 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+  --bg-pink: #fcefee;
+  --text-dark-pink: #6d5d5d;
+  --font-main: 'Lora', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-pink);
+  color: var(--text-dark-pink);
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}

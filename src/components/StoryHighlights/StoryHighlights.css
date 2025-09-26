@@ -1,0 +1,216 @@
+/* src/components/StoryHighlights/StoryHighlights.css */
+
+.story-section-wrapper {
+  position: relative;
+  padding: 3rem 0;
+  background: linear-gradient(to bottom, #fff0f5, #ffffff);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.story-highlights-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  gap: 2.5rem;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+}
+
+.story-highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  width: 90px;
+  transition: transform 0.3s ease;
+}
+
+.story-highlight-item:hover {
+  transform: translateY(-5px);
+}
+
+.story-ring {
+  padding: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbd3e0, #fce5ec);
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.story-image {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid #ffffff;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+.story-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-dark-pink);
+  text-align: center;
+  background-color: rgba(255, 240, 245, 0.6);
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 1px 4px rgba(188, 149, 149, 0.15);
+}
+
+/* --- STYLE UNTUK PREVIEW POP-UP --- */
+
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 192, 203, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.preview-content {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: auto;
+  max-width: 550px;
+  max-height: 90vh;
+  padding: 1.5rem;
+  border: 5px solid #FADADD;
+  position: relative;
+  animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.preview-image-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+}
+
+.preview-caption {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: bold;
+  color: var(--text-dark-pink);
+}
+
+.close-preview-button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 45px;
+  height: 45px;
+  background: #fff;
+  border: 4px solid #FADADD;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-dark-pink);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.close-preview-button:hover {
+  transform: scale(1.1) rotate(90deg);
+  background-color: #fff5f5;
+}
+
+/* Tombol navigasi PREVIEW (< >) */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: var(--text-dark-pink);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.nav-button.prev { left: 10px; }
+.nav-button.next { right: 10px; }
+
+
+/* Tombol navigasi mobile, disembunyikan */
+.mobile-nav-button {
+  display: none;
+}
+
+
+/* Animasi */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .story-section-wrapper {
+    padding: 2rem 0;
+  }
+
+  .story-highlights-container {
+    /* Mengembalikan ke 'center' agar item di tengah */
+    justify-content: center;
+    flex-wrap: wrap; /* Biarkan wrap agar rapi */
+    gap: 1.5rem;
+    padding: 0 1rem;
+    overflow-x: hidden; /* Tidak perlu scroll horizontal lagi */
+  }
+
+  .story-highlight-item {
+    width: 75px;
+  }
+
+  .story-image {
+    width: 65px;
+    height: 65px;
+  }
+
+  .story-name {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+  }
+  
+  .preview-content {
+    width: 90%;
+    padding: 1rem;
+  }
+}

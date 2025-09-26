@@ -1,0 +1,105 @@
+/* ============================================= */
+/* Owner Story Section                  */
+/* ============================================= */
+
+.owner-story-section {
+  padding: 6rem 2rem;
+  background-color: var(--bg-pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents layout shifts from hover effects */
+}
+
+.owner-story-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Text content container on the left 
+*/
+.story-text-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.story-title {
+  font-size: 2.5rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.story-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-dark-pink);
+}
+
+.story-signature {
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: right;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+/* Image comparison container on the right 
+*/
+.story-image-comparison {
+  flex: 1;
+  max-width: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  /* Added for a smooth hover effect */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Added for desktop interactivity */
+@media (min-width: 769px) {
+  .story-image-comparison:hover {
+    transform: scale(1.03);
+  }
+}
+
+
+/* ============================================= */
+/* Mobile Responsiveness                */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .owner-story-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .owner-story-content {
+    /* Stack the items, with the image appearing on top */
+    flex-direction: column-reverse;
+    gap: 2.5rem;
+  }
+
+  .story-image-comparison {
+    width: 100%;
+    /* This makes the slider handle interactive on mobile */
+    overflow: visible; 
+  }
+  
+  .story-text-content {
+    text-align: center;
+    width: 100%;
+  }
+
+  .story-title {
+    font-size: 2rem;
+  }
+
+  .story-signature {
+    text-align: center;
+  }
+}
